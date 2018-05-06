@@ -11,7 +11,7 @@ var connection = mysql.createConnection({
 
     user: "root",
     password: "",
-    // insecureAuth : true,
+
     database: "bamazon"
 });
 
@@ -25,11 +25,8 @@ function readProducts() {
     console.log("Selecting all products...\n");
     connection.query("SELECT item_id, product_name, price, stock_quantity FROM products", function (err, res) {
         if (err) throw err;
-        // Log all results of the SELECT statement
         console.log(res);
-        // const productNumbers = res.length;
-        // const { stock_quantity } = res  
-        // console.log("after const------------->", res[0].stock_quantity);     
+          
         buyProduct();
     });
 }
